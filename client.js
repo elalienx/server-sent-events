@@ -12,8 +12,6 @@ function connectToServer() {
   eventSource.onerror = function () {
     updateMessage("Server closed connection ❌");
     eventSource.close();
-    // Reconnect after a delay
-    setTimeout(connectToServer, 3000); // Reconnect after 3 seconds
   };
 }
 
