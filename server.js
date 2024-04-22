@@ -1,25 +1,25 @@
-const express = require('express')
-const app = express()
+import express from "express";
 
-const port = 8000
+// Properties
+const app = express();
+const port = 8000;
 
-app.get('/', (req, res) => {
-  console.log('Client connected')
-  res.setHeader('Content-Type', 'text/event-stream')
-  res.setHeader('Access-Control-Allow-Origin', '*')
+app.listen(port, () => console.log(`Server running on port ${port}`));
+
+app.get("/", (request, response) => {
+  console.log("Client connected ✅");
+  response.setHeader("Content-Type", "text/event-stream");
+  response.setHeader("Access-Control-Allow-Origin", "*");
 
   const intervalId = setInterval(() => {
-    const date = new Date().toLocaleString()
-    res.write(`data: ${date}\n\n`)
-  }, 1000)
+    const date = new Date().toLocaleString();
 
-  res.on('close', () => {
-    console.log('Client closed connection')
-    clearInterval(intervalId)
-    res.end()
-  })
-})
+    response.write(`data: ${date}\n`);
+  }, 1000);
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`)
-})
+  response.on("close", () => {
+    console.log("Client closed connection ❌");
+    clearInterval(intervalId);
+    response.end();
+  });
+});
