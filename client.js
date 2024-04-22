@@ -1,5 +1,5 @@
 // Properties
-const port = 8000;
+const port = 8080;
 const eventSource = new EventSource(`http://localhost:${port}`);
 
 function updateMessage(message) {

@@ -1,0 +1,16 @@
+meta {
+  name: Get Dates with SEE
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:8080/
+  body: none
+  auth: none
+}
+
+headers {
+  Content-Type: text/event-stream
+  Access-Control-Allow-Origin: *
+}

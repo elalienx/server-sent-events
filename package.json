@@ -3,7 +3,22 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
-    "express": "^4.17.1"
-  }
+    "express": "^4.19.2"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elalienx/server-sent-events.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/elalienx/server-sent-events/issues"
+  },
+  "homepage": "https://github.com/elalienx/server-sent-events#readme",
+  "description": ""
 }
