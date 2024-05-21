@@ -4,15 +4,18 @@ import express from "express";
 const app = express();
 const port = 8080;
 
-app.listen(port, () => console.log(`Server V2 on port ${port}`));
+app.listen(port, () => console.log(`Backend V1 on port ${port}`));
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 app.get("/", async (request, response) => {
+  console.log("📡 Connected");
+
+  // Properties
   let limit = 0; // Initialize limit for each new connection
-  console.log("Client connected ✅");
+
   response.setHeader("Content-Type", "text/event-stream");
   response.setHeader("Cache-Control", "no-cache");
   response.setHeader("Access-Control-Allow-Origin", "*");
@@ -26,9 +29,9 @@ app.get("/", async (request, response) => {
       limit++;
     }
   } catch (error) {
-    console.error("Error occurred:", error);
+    console.error("❌ Error:", error);
   } finally {
-    console.log("Client closed connection ❌");
+    console.log("🏁 Completed transfer");
     response.end();
   }
 });
