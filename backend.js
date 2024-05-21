@@ -2,6 +2,7 @@
 import express from "express";
 
 // Project files
+import sleep from "./src/sleep.js";
 
 // Properties
 const app = express();

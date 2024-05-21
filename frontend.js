@@ -16,6 +16,8 @@ function connectToServer() {
 }
 
 function updateMessage(message) {
+  console.log("Getting new message:", message);
+
   const list = document.getElementById("messages");
   const item = document.createElement("li");
 
